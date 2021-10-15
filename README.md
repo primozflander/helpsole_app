@@ -2,6 +2,8 @@
 
 Android companion App for Helpsole development board.
 
+![app](assets/app.png)
+
 **Table of Contents**
 
 - [Helpsole](#helpsole-app)
@@ -42,4 +44,5 @@ Follow this steps to upload the App to your Android tablet.
 ## Contact
 
 Primoz Flander: [primoz.flanderfh-campuswien.ac.at](<mailto:primoz.flanderfh-campuswien.ac.at>)
+
 Project Link: [Helpsole App](https://github.com/primozflander/helpsole_app)

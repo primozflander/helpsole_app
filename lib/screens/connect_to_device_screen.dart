@@ -119,7 +119,7 @@ class _ConnectToDeviceScreenState extends State<ConnectToDeviceScreen> {
               CircularProgressIndicator(),
               SizedBox(height: 30),
               Text(
-                "Connect",
+                "Connecting...",
               ),
             ],
           ),
