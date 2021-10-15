@@ -1,5 +1,3 @@
-// @dart=2.9
-
 import 'dart:async';
 
 import 'package:flutter/material.dart';
@@ -80,16 +78,6 @@ class FindDevicesScreen extends StatelessWidget {
                                     Provider.of<BleProvider>(context,
                                             listen: false)
                                         .setBleDevice(d);
-                                    // await d.disconnect().then(
-                                    //       (value) => Navigator.of(context)
-                                    //           .pushReplacementNamed(
-                                    //               ConnectToDeviceScreen
-                                    //                   .routeName),
-                                    //     );
-                                    // await d.disconnect().then(
-                                    //       (value) => selectDevice(d),
-                                    //     );
-                                    // selectDevice(d);
                                     d.disconnect();
                                   },
                                 );
@@ -107,8 +95,8 @@ class FindDevicesScreen extends StatelessWidget {
                 initialData: [],
                 builder: (c, snapshot) => Column(
                   children: snapshot.data
-                      // .where((element) =>
-                      //     element.device.name.startsWith('ProtoSole'))
+                      .where((element) =>
+                          element.device.name.startsWith('HelpSole'))
                       .map(
                         (r) => ScanResultTile(
                           result: r,

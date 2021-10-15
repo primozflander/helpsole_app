@@ -1,16 +1,45 @@
-# helpsole_app
+# Helpsole App
 
-A new Flutter project.
+Android companion App for Helpsole development board.
+
+**Table of Contents**
+
+- [Helpsole](#helpsole-app)
+  * [About The Project](#about-the-project)
+    + [Built With](#built-with)
+  * [Getting Started](#getting-started)
+    + [Prerequisites](#prerequisites)
+    + [App installation](#app-installation)
+  * [Contact](#contact)
+
+
+## About The Project
+
+### Built With
+
+* [Flutter](https://flutter.dev)
+* [Visual Studio Code](https://code.visualstudio.com)
 
 ## Getting Started
 
-This project is a starting point for a Flutter application.
+Follow this steps to upload the App to your Android tablet.
 
-A few resources to get you started if this is your first Flutter project:
+### Prerequisites
 
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
+* Android Studio
+* Flutter
+* Optional: Visual Studio Code
 
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+
+### App installation
+
+1. Connect your android device to your PC
+2. Open command line and move to the project folder `cd <your app dir>`
+3. Run `flutter build apk --release`
+4. Run `flutter install`
+
+
+## Contact
+
+Primoz Flander: [primoz.flanderfh-campuswien.ac.at](<mailto:primoz.flanderfh-campuswien.ac.at>)
+Project Link: [Helpsole App](https://github.com/primozflander/helpsole_app)

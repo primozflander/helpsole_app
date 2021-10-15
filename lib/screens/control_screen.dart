@@ -57,8 +57,8 @@ class _ControlScreenState extends State<ControlScreen> {
                 // width: 0,
                 child: Card(
                   margin: EdgeInsets.symmetric(
-                      horizontal: screenSize.width - (screenSize.width - 100),
-                      vertical: screenSize.height - (screenSize.height - 50)),
+                      horizontal: screenSize.width - (screenSize.width - 70),
+                      vertical: screenSize.height - (screenSize.height - 30)),
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(18.0),
                   ),
@@ -86,8 +86,8 @@ class _ControlScreenState extends State<ControlScreen> {
                 // margin: EdgeInsets.all(20),
                 child: Card(
                   margin: EdgeInsets.symmetric(
-                      horizontal: screenSize.width - (screenSize.width - 100),
-                      vertical: screenSize.height - (screenSize.height - 50)),
+                      horizontal: screenSize.width - (screenSize.width - 70),
+                      vertical: screenSize.height - (screenSize.height - 30)),
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(18.0),
                   ),
@@ -118,8 +118,8 @@ class _ControlScreenState extends State<ControlScreen> {
                 // margin: EdgeInsets.all(20),
                 child: Card(
                   margin: EdgeInsets.symmetric(
-                      horizontal: screenSize.width - (screenSize.width - 100),
-                      vertical: screenSize.height - (screenSize.height - 50)),
+                      horizontal: screenSize.width - (screenSize.width - 70),
+                      vertical: screenSize.height - (screenSize.height - 30)),
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(18.0),
                   ),

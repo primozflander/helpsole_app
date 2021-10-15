@@ -1,5 +1,3 @@
-// @dart=2.9
-
 import 'dart:async';
 
 import 'package:flutter/material.dart';
@@ -21,8 +19,8 @@ class _ConnectToDeviceScreenState extends State<ConnectToDeviceScreen> {
   bool _isReady = false;
   bool _isLoading = false;
   Stream<List<int>> stream;
-  StreamController<List<int>> _streamController =
-      StreamController<List<int>>.broadcast();
+  // StreamController<List<int>> _streamController =
+  //     StreamController<List<int>>.broadcast();
   StreamSubscription<BluetoothDeviceState> bleConnectionStateSubscription;
 
   Future _connectToDevice(BluetoothDevice device) async {

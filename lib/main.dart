@@ -14,7 +14,6 @@ void main() {
 class MyApp extends StatelessWidget {
   const MyApp({Key key}) : super(key: key);
 
-  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
     Wakelock.enable();
@@ -30,13 +29,10 @@ class MyApp extends StatelessWidget {
         theme: ThemeData(
           colorScheme: theme.colorScheme
               .copyWith(primary: Colors.cyan, secondary: Colors.redAccent),
-          // primarySwatch: Colors.cyan,
           fontFamily: 'Quicksand',
           visualDensity: VisualDensity.adaptivePlatformDensity,
         ),
-        // ),
-        // home: const MyHomePage(title: 'Main'),
-        initialRoute: ControlScreen.routeName,
+        initialRoute: BLECheckScreen.routeName,
         routes: {
           ControlScreen.routeName: (context) => ControlScreen(),
           BLECheckScreen.routeName: (context) => BLECheckScreen(),
