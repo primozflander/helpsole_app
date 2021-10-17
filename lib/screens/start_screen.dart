@@ -5,6 +5,7 @@ import '../screens/connect_to_device_screen.dart';
 import '../widgets/ble_helpers.dart';
 
 class BLECheckScreen extends StatelessWidget {
+  const BLECheckScreen({Key key}) : super(key: key);
   static const routeName = '/start_screen';
   @override
   Widget build(BuildContext context) {
@@ -14,7 +15,7 @@ class BLECheckScreen extends StatelessWidget {
       builder: (c, snapshot) {
         final state = snapshot.data;
         if (state == BluetoothState.on) {
-          return ConnectToDeviceScreen();
+          return const ConnectToDeviceScreen();
         }
         return BluetoothOffScreen(state: state);
       },

@@ -9,7 +9,7 @@ class BleProvider with ChangeNotifier {
   Stream<List<dynamic>> _stream;
   StreamController _streamController;
   Map<String, dynamic> _receivedData = {};
-  Map<String, BluetoothCharacteristic> _bleChars = {};
+  final Map<String, BluetoothCharacteristic> _bleChars = {};
 
   Map<String, BluetoothCharacteristic> get bleChars {
     return _bleChars;

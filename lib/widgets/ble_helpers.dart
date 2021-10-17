@@ -19,7 +19,7 @@ class BluetoothOffScreen extends StatelessWidget {
         child: Column(
           mainAxisSize: MainAxisSize.min,
           children: <Widget>[
-            Icon(
+            const Icon(
               Icons.bluetooth_disabled,
               size: 200.0,
               color: Colors.white54,
@@ -39,27 +39,27 @@ class BluetoothOffScreen extends StatelessWidget {
 }
 
 class FindDevicesScreen extends StatelessWidget {
+  // const FindDevicesScreen({Key key}) : super(key: key);
   final Function selectDevice;
-
-  FindDevicesScreen(this.selectDevice);
+  const FindDevicesScreen(this.selectDevice, {Key key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         centerTitle: true,
-        title: Text("Find devices"),
+        title: const Text("Find devices"),
       ),
       body: RefreshIndicator(
         onRefresh: () =>
-            FlutterBlue.instance.startScan(timeout: Duration(seconds: 4)),
+            FlutterBlue.instance.startScan(timeout: const Duration(seconds: 4)),
         child: SingleChildScrollView(
           child: Column(
             children: <Widget>[
               StreamBuilder<List<BluetoothDevice>>(
-                stream: Stream.periodic(Duration(seconds: 2))
+                stream: Stream.periodic(const Duration(seconds: 2))
                     .asyncMap((_) => FlutterBlue.instance.connectedDevices),
-                initialData: [],
+                initialData: const [],
                 builder: (c, snapshot) => Column(
                   children: snapshot.data
                       .map(
@@ -73,7 +73,7 @@ class FindDevicesScreen extends StatelessWidget {
                               if (snapshot.data ==
                                   BluetoothDeviceState.connected) {
                                 return ElevatedButton(
-                                  child: Text("Disconnect"),
+                                  child: const Text("Disconnect"),
                                   onPressed: () async {
                                     Provider.of<BleProvider>(context,
                                             listen: false)
@@ -92,11 +92,11 @@ class FindDevicesScreen extends StatelessWidget {
               ),
               StreamBuilder<List<ScanResult>>(
                 stream: FlutterBlue.instance.scanResults,
-                initialData: [],
+                initialData: const [],
                 builder: (c, snapshot) => Column(
                   children: snapshot.data
                       .where((element) =>
-                          element.device.name.startsWith('HelpSole'))
+                          element.device.name.startsWith('ProtoSole'))
                       .map(
                         (r) => ScanResultTile(
                           result: r,
@@ -120,15 +120,15 @@ class FindDevicesScreen extends StatelessWidget {
         builder: (c, snapshot) {
           if (snapshot.data) {
             return FloatingActionButton(
-              child: Icon(Icons.stop),
+              child: const Icon(Icons.stop),
               onPressed: () => FlutterBlue.instance.stopScan(),
               backgroundColor: Colors.red,
             );
           } else {
             return FloatingActionButton(
-                child: Icon(Icons.search),
+                child: const Icon(Icons.search),
                 onPressed: () => FlutterBlue.instance
-                    .startScan(timeout: Duration(seconds: 4)));
+                    .startScan(timeout: const Duration(seconds: 4)));
           }
         },
       ),
@@ -144,7 +144,7 @@ class ScanResultTile extends StatelessWidget {
   final VoidCallback onTap;
 
   Widget _buildTitle(BuildContext context) {
-    if (result.device.name.length > 0) {
+    if (result.device.name.isNotEmpty) {
       return Column(
         mainAxisAlignment: MainAxisAlignment.start,
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -166,12 +166,12 @@ class ScanResultTile extends StatelessWidget {
 
   Widget _buildAdvRow(BuildContext context, String title, String value) {
     return Padding(
-      padding: EdgeInsets.symmetric(horizontal: 16.0, vertical: 4.0),
+      padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 4.0),
       child: Row(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[
           Text(title, style: Theme.of(context).textTheme.caption),
-          SizedBox(
+          const SizedBox(
             width: 12.0,
           ),
           Expanded(
@@ -227,7 +227,7 @@ class ScanResultTile extends StatelessWidget {
           primary: Theme.of(context).colorScheme.secondary,
           onPrimary: Colors.white,
         ),
-        child: Text("Connect"),
+        child: const Text("Connect"),
         onPressed: (result.advertisementData.connectable) ? onTap : null,
       ),
       children: <Widget>[

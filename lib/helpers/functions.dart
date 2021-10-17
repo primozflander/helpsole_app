@@ -52,7 +52,7 @@ class Functions {
         'gyroY': 0,
         'gyroZ': 0,
       };
-    } else
+    } else {
       return {
         'timestamp': 0,
         'tipSensorValue': 0,
@@ -73,5 +73,6 @@ class Functions {
         'gyroY': 0,
         'gyroZ': 0,
       };
+    }
   }
 }

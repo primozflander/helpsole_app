@@ -10,6 +10,7 @@ import './control_screen.dart';
 import '../models/uuids.dart';
 
 class ConnectToDeviceScreen extends StatefulWidget {
+  const ConnectToDeviceScreen({Key key}) : super(key: key);
   static const routeName = '/connect_to_device_screen';
   @override
   _ConnectToDeviceScreenState createState() => _ConnectToDeviceScreenState();
@@ -24,7 +25,8 @@ class _ConnectToDeviceScreenState extends State<ConnectToDeviceScreen> {
   StreamSubscription<BluetoothDeviceState> bleConnectionStateSubscription;
 
   Future _connectToDevice(BluetoothDevice device) async {
-    await device.connect(autoConnect: false, timeout: Duration(seconds: 5));
+    await device.connect(
+        autoConnect: false, timeout: const Duration(seconds: 5));
     _addConnectionListener(device);
   }
 
@@ -49,18 +51,15 @@ class _ConnectToDeviceScreenState extends State<ConnectToDeviceScreen> {
           //   );
           if (characteristic.uuid.toString() == Uuid.charControl) {
             bleCharProvider.addBleChar(Uuid.charControl, characteristic);
-            print("char found-------------------");
           }
         }
         _isReady = true;
-        print("in the loop-------------------");
-        // print(bleCharProvider.bleChars);
+        print(bleCharProvider.bleChars);
       }
     }
     if (_isReady) {
       Navigator.of(context).pushNamed(ControlScreen.routeName);
     } else {
-      print("----------here----------$_isReady");
       device.disconnect();
     }
   }
@@ -73,7 +72,8 @@ class _ConnectToDeviceScreenState extends State<ConnectToDeviceScreen> {
           await bleConnectionStateSubscription.cancel();
           Navigator.of(context).pushAndRemoveUntil(
               MaterialPageRoute<void>(
-                  builder: (BuildContext context) => ConnectToDeviceScreen()),
+                  builder: (BuildContext context) =>
+                      const ConnectToDeviceScreen()),
               ModalRoute.withName(ConnectToDeviceScreen.routeName));
           setState(() {
             _isLoading = false;
@@ -98,7 +98,7 @@ class _ConnectToDeviceScreenState extends State<ConnectToDeviceScreen> {
 
   @override
   void initState() {
-    print('<connect to device screen init>');
+    // print('<connect to device screen init>');
     super.initState();
   }
 
@@ -108,14 +108,14 @@ class _ConnectToDeviceScreenState extends State<ConnectToDeviceScreen> {
       return Scaffold(
         appBar: AppBar(
           centerTitle: true,
-          title: Text(
+          title: const Text(
             "Connect",
           ),
         ),
         body: Center(
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
-            children: [
+            children: const [
               CircularProgressIndicator(),
               SizedBox(height: 30),
               Text(

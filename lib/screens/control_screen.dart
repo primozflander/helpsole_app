@@ -6,7 +6,7 @@ import '../providers/ble_provider.dart';
 import '../models/uuids.dart';
 
 class ControlScreen extends StatefulWidget {
-  // const ControlScreen({Key? key}) : super(key: key);
+  const ControlScreen({Key key}) : super(key: key);
   static const routeName = '/control_screen';
   @override
   _ControlScreenState createState() => _ControlScreenState();
@@ -29,16 +29,16 @@ class _ControlScreenState extends State<ControlScreen> {
     final containerHeight = (screenSize.height / 3) - 50;
     return WillPopScope(
       onWillPop: () async {
-        print("trigger");
+        // print("trigger");
         return true;
       },
       child: Scaffold(
         appBar: AppBar(
           centerTitle: true,
-          title: Text("Helpsole App"),
+          title: const Text("Helpsole App"),
         ),
         body: Ink(
-          decoration: BoxDecoration(
+          decoration: const BoxDecoration(
             gradient: LinearGradient(
               colors: [
                 Color(0xff82c2d1),
@@ -52,7 +52,7 @@ class _ControlScreenState extends State<ControlScreen> {
             mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
-              Container(
+              SizedBox(
                 height: containerHeight,
                 // width: 0,
                 child: Card(
@@ -67,21 +67,21 @@ class _ControlScreenState extends State<ControlScreen> {
                       _writeToChar(
                         Provider.of<BleProvider>(context, listen: false)
                             .findByName(Uuid.charControl),
-                        1,
+                        49,
                       );
                     },
-                    icon: Icon(
+                    icon: const Icon(
                       Icons.addchart,
                       size: 40,
                     ),
-                    label: Text(
+                    label: const Text(
                       "Start recording",
                       style: TextStyle(fontSize: 20),
                     ),
                   ),
                 ),
               ),
-              Container(
+              SizedBox(
                 height: containerHeight,
                 // margin: EdgeInsets.all(20),
                 child: Card(
@@ -96,7 +96,7 @@ class _ControlScreenState extends State<ControlScreen> {
                       _writeToChar(
                         Provider.of<BleProvider>(context, listen: false)
                             .findByName(Uuid.charControl),
-                        0,
+                        48,
                       );
                     },
                     icon: Icon(
@@ -113,7 +113,7 @@ class _ControlScreenState extends State<ControlScreen> {
                   ),
                 ),
               ),
-              Container(
+              SizedBox(
                 height: containerHeight,
                 // margin: EdgeInsets.all(20),
                 child: Card(
@@ -128,15 +128,15 @@ class _ControlScreenState extends State<ControlScreen> {
                       _writeToChar(
                         Provider.of<BleProvider>(context, listen: false)
                             .findByName(Uuid.charControl),
-                        2,
+                        50,
                       );
                     },
-                    icon: Icon(
+                    icon: const Icon(
                       Icons.tune,
                       color: Colors.black54,
                       size: 40,
                     ),
-                    label: Text(
+                    label: const Text(
                       "Calibrate",
                       style: TextStyle(color: Colors.black54, fontSize: 20),
                     ),

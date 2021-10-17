@@ -34,9 +34,9 @@ class MyApp extends StatelessWidget {
         ),
         initialRoute: BLECheckScreen.routeName,
         routes: {
-          ControlScreen.routeName: (context) => ControlScreen(),
-          BLECheckScreen.routeName: (context) => BLECheckScreen(),
-          ConnectToDeviceScreen.routeName: (context) => ConnectToDeviceScreen(),
+          ControlScreen.routeName: (context) => const ControlScreen(),
+          BLECheckScreen.routeName: (context) => const BLECheckScreen(),
+          ConnectToDeviceScreen.routeName: (context) => const ConnectToDeviceScreen(),
         },
       ),
     );
